@@ -1,4 +1,5 @@
 import React from 'react';
+// import CSSTransition from 'react-transition-group/CSSTransition';
 import SearchBar from './containers/SearchBar/SearchBar';
 import ImageCards from './containers/ImageCards/ImageCards';
 import Loader from './Components/Loader/Loader';
@@ -18,7 +19,7 @@ export default class App extends React.Component {
     }
 
     componentDidMount() {
-        this.handleSearch('Mountain');
+        this.handleSearch('Table');
     }
 
     handleInput(e) {
@@ -64,14 +65,14 @@ export default class App extends React.Component {
                     handleSubmit={this.handleSubmit}
                     query={this.state.query}
                 />
+                <Loader isLoading={this.state.isLoading}/>
                 {
-                    this.state.isLoading ? <Loader /> : (
-
+                    !(this.state.isLoading) ? (
                         <ImageCards
                             images={this.state.images}
                             lastQuery={this.state.lastQuery}
                         />
-                    )
+                    ) : null
                 }
 
             </div>
@@ -80,23 +81,21 @@ export default class App extends React.Component {
 }
 
 
-
 // render() {
 //     return (
 //         <div>
+//             <SearchBar
+//                 handleInput={this.handleInput}
+//                 handleSubmit={this.handleSubmit}
+//                 query={this.state.query}
+//             />
 //             {
 //                 this.state.isLoading ? <Loader /> : (
-//                     <div>
-//                         <SearchBar
-//                             handleInput={this.handleInput}
-//                             handleSubmit={this.handleSubmit}
-//                             query={this.state.query}
-//                         />
-//                         <ImageCards
-//                             images={this.state.images}
-//                             lastQuery={this.state.lastQuery}
-//                         />
-//                     </div>
+
+//                     <ImageCards
+//                         images={this.state.images}
+//                         lastQuery={this.state.lastQuery}
+//                     />
 //                 )
 //             }
 

@@ -31,3 +31,19 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+
+.my-loader-enter {
+  opacity: .2;
+}
+.my-loader-enter-active {
+  opacity: .9;
+  transition: opacity 200ms;
+}
+.my-loader-exit {
+  opacity: .8;
+}
+.my-loader-exit-active {
+  opacity: .2;
+  transition: opacity 200ms;
+}
