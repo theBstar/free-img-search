@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchBar.css';
 
-export default function (props) {
+export default function SearchBar(props) {
     return (
         <form id="searchBar" onSubmit={props.handleSubmit}>
             <input
@@ -9,6 +9,8 @@ export default function (props) {
                 type="text"
                 value={props.query}
                 onChange={props.handleInput}
+                autoFocus
+                placeholder="Search Free Images"
             />
             <button className="button"> Search </button>
         </form>

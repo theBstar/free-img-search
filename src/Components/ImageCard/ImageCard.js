@@ -1,7 +1,7 @@
 import React from 'react';
 import './ImageCard.css';
 
-export default function (props) {
+export default function ImageCard(props) {
   return (
     <div className="image">
       <a href={props.image.pageURL} target="_blank">

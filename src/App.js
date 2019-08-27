@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './containers/SearchBar/SearchBar';
 import ImageCards from './containers/ImageCards/ImageCards';
+import Loader from './Components/Loader/Loader';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -9,6 +10,7 @@ export default class App extends React.Component {
             query: '',
             images: [],
             lastQuery: '',
+            isLoading: false,
         };
         this.handleInput = this.handleInput.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
@@ -34,7 +36,10 @@ export default class App extends React.Component {
         this.handleSearch();
     }
     handleSearch(searchKey = '') {
-        let query = searchKey || this.state.query;
+        this.setState({
+            isLoading: true
+        });
+        let query = searchKey || this.state.query.trim();
         let endPoint = `https://pixabay.com/api/?key=${this.props.apiKey}&q=`;
         let imageType = "&image_type=photo";
         let splitedQery = query.split(" ").join("+");
@@ -46,6 +51,7 @@ export default class App extends React.Component {
                     images: data.hits,
                     query: "",
                     lastQuery: query,
+                    isLoading: false,
                 })
             );
     }
@@ -58,11 +64,42 @@ export default class App extends React.Component {
                     handleSubmit={this.handleSubmit}
                     query={this.state.query}
                 />
-                <ImageCards
-                    images={this.state.images}
-                    lastQuery={this.state.lastQuery}
-                />
+                {
+                    this.state.isLoading ? <Loader /> : (
+
+                        <ImageCards
+                            images={this.state.images}
+                            lastQuery={this.state.lastQuery}
+                        />
+                    )
+                }
+
             </div>
         )
     }
 }
+
+
+
+// render() {
+//     return (
+//         <div>
+//             {
+//                 this.state.isLoading ? <Loader /> : (
+//                     <div>
+//                         <SearchBar
+//                             handleInput={this.handleInput}
+//                             handleSubmit={this.handleSubmit}
+//                             query={this.state.query}
+//                         />
+//                         <ImageCards
+//                             images={this.state.images}
+//                             lastQuery={this.state.lastQuery}
+//                         />
+//                     </div>
+//                 )
+//             }
+
+//         </div>
+//     )
+// }
