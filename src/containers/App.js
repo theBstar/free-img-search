@@ -1,8 +1,8 @@
 import React from 'react';
 // import CSSTransition from 'react-transition-group/CSSTransition';
-import SearchBar from './containers/SearchBar/SearchBar';
-import ImageCards from './containers/ImageCards/ImageCards';
-import Loader from './Components/Loader/Loader';
+import SearchBar from '../components/SearchBar/SearchBar';
+import ImageCards from './ImageCards/ImageCards';
+import Loader from '../components/Loader/Loader';
 
 export default class App extends React.Component {
     constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from "./App";
+import App from "./containers/App";
 import "./index.css";
 const API = process.env.REACT_APP_APPIKEY;
 

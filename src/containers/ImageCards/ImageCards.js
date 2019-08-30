@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageCard from '../../Components/ImageCard/ImageCard';
+import ImageCard from '../../components/ImageCard/ImageCard';
 import './ImageCards.css';
 
 export default function ImageCards(props) {
