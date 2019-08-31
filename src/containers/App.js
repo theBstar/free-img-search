@@ -1,7 +1,7 @@
 import React from 'react';
 // import CSSTransition from 'react-transition-group/CSSTransition';
 import SearchBar from '../components/SearchBar/SearchBar';
-import ImageCards from './ImageCards/ImageCards';
+import ImageCards from '../components/ImageCards/ImageCards';
 import Loader from '../components/Loader/Loader';
 
 export default class App extends React.Component {
